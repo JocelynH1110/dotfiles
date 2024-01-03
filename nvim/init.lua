@@ -126,7 +126,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',     opts = {} },
+  { 'numToStr/Comment.nvim',   opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -159,9 +159,9 @@ require('lazy').setup({
   },
 
   'ctjhoa/spacevim',
-  { 'nvim-tree/nvim-tree.lua',   cmd = 'NvimTreeFindFileToggle', config = true },
-  { 'h-hg/fcitx.nvim',           cond = is_linux },
-  { 'hashivim/vim-terraform',    ft = 'terraform' },
+  { 'nvim-tree/nvim-tree.lua', cmd = 'NvimTreeFindFileToggle', config = true },
+  { 'h-hg/fcitx.nvim',         cond = is_linux },
+  { 'hashivim/vim-terraform',  ft = 'terraform' },
   "lukas-reineke/lsp-format.nvim",
   { 'fatih/vim-go',      ft = 'go' },
   { 'joerdav/templ.vim', ft = 'templ' },
@@ -179,6 +179,25 @@ require('lazy').setup({
   'vim-test/vim-test',
   'dcampos/cmp-emmet-vim',
   'mattn/emmet-vim',
+  {
+    'kristijanhusak/vim-dadbod-ui',
+    dependencies = {
+      { 'tpope/vim-dadbod',                     lazy = true },
+      { 'kristijanhusak/vim-dadbod-completion', ft = { 'sql', 'mysql', 'plsql' }, lazy = true },
+    },
+    cmd = {
+      'DBUI',
+      'DBUIToggle',
+      'DBUIAddConnection',
+      'DBUIFindBuffer',
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+      vim.g.db_ui_env_variable_url = 'DATABASE_URL'
+      vim.g.db_ui_env_variable_name = 'DATABASE_NAME'
+    end,
+  }
 }, {})
 
 -- Set highlight on search
