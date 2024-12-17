@@ -61,7 +61,6 @@ local servers = {
       terraform = { terraformformat },
     }
   },
-  tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   -- terraformls = {},
   templ = {},
